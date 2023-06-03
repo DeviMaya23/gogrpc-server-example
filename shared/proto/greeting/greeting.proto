@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package greeting;
+
+option go_package = "./;greeting";
+
+message GetNamedGreetingRequest {
+    string Name = 1;
+}
+
+message GreetingResponse {
+    string Message = 1;
+}
+
+service GreetingService {
+    rpc GetNamedGreeting(GetNamedGreetingRequest) returns (GreetingResponse);
+    // rpc GetNamedGreetingValidated(GetNamedGreetingValidatedRequest) returns (GreetingResponse);
+    // rpc GetGenericGreeting(google.protobuf.Empty) returns (GreetingResponse);
+
+}
