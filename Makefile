@@ -1,4 +1,4 @@
 clean:
-	@rm -vf ./shared/proto/greeting/*.pb.go
+	@rm -vf ./shared/proto/*.pb.go
 protoc: clean
-	@cd ./shared/proto/greeting && protoc --go_out=. --go-grpc_out=. *.proto
+	@cd ./shared/proto && protoc --go_out=. --go-grpc_out=. *.proto

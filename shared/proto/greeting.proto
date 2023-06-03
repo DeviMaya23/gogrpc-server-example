@@ -1,8 +1,10 @@
 syntax = "proto3";
 
-package greeting;
+package proto;
 
-option go_package = "./;greeting";
+option go_package = "./;proto";
+
+import "google/protobuf/empty.proto";
 
 message GetNamedGreetingRequest {
     string Name = 1;
@@ -13,8 +15,8 @@ message GreetingResponse {
 }
 
 service GreetingService {
+    rpc GetGenericGreeting(google.protobuf.Empty) returns (GreetingResponse);
     rpc GetNamedGreeting(GetNamedGreetingRequest) returns (GreetingResponse);
     // rpc GetNamedGreetingValidated(GetNamedGreetingValidatedRequest) returns (GreetingResponse);
-    // rpc GetGenericGreeting(google.protobuf.Empty) returns (GreetingResponse);
 
 }

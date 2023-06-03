@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 	delivery "go-grpc-service/delivery/grpc"
-	"go-grpc-service/shared/proto/greeting"
+	"go-grpc-service/shared/proto"
 	"log"
 	"net"
 
@@ -23,7 +23,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	server := grpc.NewServer()
-	greeting.RegisterGreetingServiceServer(server, delivery.NewGreetingHandler())
+	proto.RegisterGreetingServiceServer(server, delivery.NewGreetingHandler())
 
 	if err := server.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
