@@ -17,6 +17,5 @@ message GreetingResponse {
 service GreetingService {
     rpc GetGenericGreeting(google.protobuf.Empty) returns (GreetingResponse);
     rpc GetNamedGreeting(GetNamedGreetingRequest) returns (GreetingResponse);
-    // rpc GetNamedGreetingValidated(GetNamedGreetingValidatedRequest) returns (GreetingResponse);
 
 }
