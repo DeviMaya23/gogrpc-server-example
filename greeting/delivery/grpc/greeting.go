@@ -34,13 +34,7 @@ func (g GreetingHandler) GetGenericGreeting(ctx context.Context, in *empty.Empty
 
 func (g GreetingHandler) GetVerboseGreeting(ctx context.Context, req *proto.GetVerboseGreetingRequest) (*proto.GetVerboseGreetingResponse, error) {
 
-	message := fmt.Sprintf("My name is %s! I am %d year(s) old. I like playing ", req.Name, req.Age)
-
-	for _, game := range req.FavoriteGames {
-		message = message + fmt.Sprintf("%s(%s), ", game.Name, game.Console)
-	}
-
-	message = message + " amongst other things."
+	message := fmt.Sprintf("My name is %s! I am %d year(s) old. My favorite game is %s on the %s. ", req.Name, req.Age, req.FavoriteGame.Name, req.FavoriteGame.Console)
 	isOld := req.Age > 18
 
 	return &proto.GetVerboseGreetingResponse{

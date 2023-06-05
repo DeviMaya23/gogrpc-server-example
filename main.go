@@ -3,12 +3,16 @@ package main
 import (
 	"flag"
 	"fmt"
-	delivery "go-grpc-service/delivery/grpc"
+	greetingDelivery "go-grpc-service/greeting/delivery/grpc"
 	"go-grpc-service/shared/proto"
+	villagersDelivery "go-grpc-service/villagers/delivery/grpc"
+	"go-grpc-service/villagers/repository"
+	"go-grpc-service/villagers/usecase"
 	"log"
 	"net"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 var (
@@ -23,7 +27,13 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	server := grpc.NewServer()
-	proto.RegisterGreetingServiceServer(server, delivery.NewGreetingHandler())
+
+	villagersRepo := repository.NewVillagersRepository()
+	villagersUc := usecase.NewVillagersUsecase(villagersRepo)
+	proto.RegisterVillagersServiceServer(server, villagersDelivery.NewVillagersHandler(villagersUc))
+
+	proto.RegisterGreetingServiceServer(server, greetingDelivery.NewGreetingHandler())
+	reflection.Register(server)
 
 	if err := server.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
