@@ -14,10 +14,10 @@ type Villager struct {
 
 type VillagersUsecase interface {
 	FindAll(ctx context.Context) ([]Villager, error)
-	Find(ctx context.Context, name string) (*Villager, error)
+	FindByName(ctx context.Context, name string) (*Villager, error)
 }
 
 type VillagersRepository interface {
 	FindAll(ctx context.Context) ([]Villager, error)
-	Find(ctx context.Context, name string) (*Villager, error)
+	FindByName(ctx context.Context, name string) (*Villager, error)
 }

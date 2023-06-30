@@ -5,6 +5,16 @@ import (
 	"go-grpc-service/shared/proto"
 )
 
+func VillagerMapper(in *domain.Villager) *proto.Villager {
+
+	protoVillager := &proto.Villager{
+		Name:        in.Name,
+		Personality: in.Personality,
+	}
+
+	return protoVillager
+}
+
 func FindAllResponseMapper(in []domain.Villager) *proto.FindAllResponse {
 
 	var villagers []*proto.Villager

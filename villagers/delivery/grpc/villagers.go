@@ -2,6 +2,7 @@ package grpc
 
 import (
 	"context"
+	"go-grpc-service/common/constants"
 	"go-grpc-service/domain"
 	"go-grpc-service/shared/proto"
 	"go-grpc-service/villagers/mapper"
@@ -9,6 +10,8 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/ptypes/empty"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type VillagersHandler struct {
@@ -66,9 +69,24 @@ func (v VillagersHandler) FindStreamClientSide(stream proto.VillagersService_Fin
 			return err
 		}
 
-		searchResult, _ := v.villagersUsecase.Find(ctx, name.Name)
+		searchResult, _ := v.villagersUsecase.FindByName(ctx, name.Name)
 		if searchResult != nil {
 			result = append(result, *searchResult)
 		}
 	}
+}
+
+func (v VillagersHandler) FindByName(ctx context.Context, req *proto.FindByNameRequest) (*proto.Villager, error) {
+
+	res, err := v.villagersUsecase.FindByName(ctx, req.Name)
+	if err != nil {
+		switch {
+		case err.Error() == constants.ErrorNotFound:
+			return nil, status.Errorf(codes.NotFound, constants.ErrorNotFound)
+		default:
+			return nil, status.Errorf(codes.Internal, constants.ErrorGeneric)
+		}
+	}
+
+	return mapper.VillagerMapper(res), nil
 }

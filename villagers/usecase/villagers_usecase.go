@@ -20,7 +20,7 @@ func (v VillagersUsecase) FindAll(ctx context.Context) ([]domain.Villager, error
 	return res, err
 }
 
-func (v VillagersUsecase) Find(ctx context.Context, name string) (*domain.Villager, error) {
-	res, err := v.repo.Find(ctx, name)
+func (v VillagersUsecase) FindByName(ctx context.Context, name string) (*domain.Villager, error) {
+	res, err := v.repo.FindByName(ctx, name)
 	return res, err
 }

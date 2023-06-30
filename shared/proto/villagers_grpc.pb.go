@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	VillagersService_FindAll_FullMethodName                 = "/proto.VillagersService/FindAll"
+	VillagersService_FindByName_FullMethodName              = "/proto.VillagersService/FindByName"
 	VillagersService_FindAllStreamServerSide_FullMethodName = "/proto.VillagersService/FindAllStreamServerSide"
 	VillagersService_FindStreamClientSide_FullMethodName    = "/proto.VillagersService/FindStreamClientSide"
 )
@@ -30,6 +31,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type VillagersServiceClient interface {
 	FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FindAllResponse, error)
+	FindByName(ctx context.Context, in *FindByNameRequest, opts ...grpc.CallOption) (*Villager, error)
 	FindAllStreamServerSide(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (VillagersService_FindAllStreamServerSideClient, error)
 	FindStreamClientSide(ctx context.Context, opts ...grpc.CallOption) (VillagersService_FindStreamClientSideClient, error)
 }
@@ -45,6 +47,15 @@ func NewVillagersServiceClient(cc grpc.ClientConnInterface) VillagersServiceClie
 func (c *villagersServiceClient) FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FindAllResponse, error) {
 	out := new(FindAllResponse)
 	err := c.cc.Invoke(ctx, VillagersService_FindAll_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *villagersServiceClient) FindByName(ctx context.Context, in *FindByNameRequest, opts ...grpc.CallOption) (*Villager, error) {
+	out := new(Villager)
+	err := c.cc.Invoke(ctx, VillagersService_FindByName_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,6 +133,7 @@ func (x *villagersServiceFindStreamClientSideClient) CloseAndRecv() (*FindAllRes
 // for forward compatibility
 type VillagersServiceServer interface {
 	FindAll(context.Context, *emptypb.Empty) (*FindAllResponse, error)
+	FindByName(context.Context, *FindByNameRequest) (*Villager, error)
 	FindAllStreamServerSide(*emptypb.Empty, VillagersService_FindAllStreamServerSideServer) error
 	FindStreamClientSide(VillagersService_FindStreamClientSideServer) error
 	mustEmbedUnimplementedVillagersServiceServer()
@@ -133,6 +145,9 @@ type UnimplementedVillagersServiceServer struct {
 
 func (UnimplementedVillagersServiceServer) FindAll(context.Context, *emptypb.Empty) (*FindAllResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindAll not implemented")
+}
+func (UnimplementedVillagersServiceServer) FindByName(context.Context, *FindByNameRequest) (*Villager, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindByName not implemented")
 }
 func (UnimplementedVillagersServiceServer) FindAllStreamServerSide(*emptypb.Empty, VillagersService_FindAllStreamServerSideServer) error {
 	return status.Errorf(codes.Unimplemented, "method FindAllStreamServerSide not implemented")
@@ -167,6 +182,24 @@ func _VillagersService_FindAll_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(VillagersServiceServer).FindAll(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VillagersService_FindByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VillagersServiceServer).FindByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VillagersService_FindByName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VillagersServiceServer).FindByName(ctx, req.(*FindByNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -228,6 +261,10 @@ var VillagersService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FindAll",
 			Handler:    _VillagersService_FindAll_Handler,
+		},
+		{
+			MethodName: "FindByName",
+			Handler:    _VillagersService_FindByName_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

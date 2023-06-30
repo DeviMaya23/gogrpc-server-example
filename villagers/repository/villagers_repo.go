@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"errors"
+	"go-grpc-service/common/constants"
 	"go-grpc-service/domain"
 	"log"
 	"os"
@@ -25,14 +26,14 @@ func (v VillagersRepository) FindAll(ctx context.Context) ([]domain.Villager, er
 	return v.Villagers, nil
 }
 
-func (v VillagersRepository) Find(ctx context.Context, name string) (*domain.Villager, error) {
+func (v VillagersRepository) FindByName(ctx context.Context, name string) (*domain.Villager, error) {
 
 	for _, villager := range v.Villagers {
 		if villager.Name == name {
 			return &villager, nil
 		}
 	}
-	return nil, errors.New("Not Found")
+	return nil, errors.New(constants.ErrorNotFound)
 }
 
 func populateVillagers(list *[]domain.Villager) {
