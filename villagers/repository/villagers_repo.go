@@ -3,6 +3,7 @@ package repository
 import (
 	"bufio"
 	"context"
+	"errors"
 	"go-grpc-service/domain"
 	"log"
 	"os"
@@ -22,6 +23,16 @@ func NewVillagersRepository() *VillagersRepository {
 
 func (v VillagersRepository) FindAll(ctx context.Context) ([]domain.Villager, error) {
 	return v.Villagers, nil
+}
+
+func (v VillagersRepository) Find(ctx context.Context, name string) (*domain.Villager, error) {
+
+	for _, villager := range v.Villagers {
+		if villager.Name == name {
+			return &villager, nil
+		}
+	}
+	return nil, errors.New("Not Found")
 }
 
 func populateVillagers(list *[]domain.Villager) {
