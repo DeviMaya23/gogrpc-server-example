@@ -33,6 +33,21 @@ func (v VillagersHandler) FindAll(ctx context.Context, req *empty.Empty) (*proto
 	return mapper.FindAllResponseMapper(res), nil
 }
 
+func (v VillagersHandler) FindByName(ctx context.Context, req *proto.FindByNameRequest) (*proto.Villager, error) {
+
+	res, err := v.villagersUsecase.FindByName(ctx, req.Name)
+	if err != nil {
+		switch {
+		case err.Error() == constants.ErrorNotFound:
+			return nil, status.Errorf(codes.NotFound, constants.ErrorNotFound)
+		default:
+			return nil, status.Errorf(codes.Internal, constants.ErrorGeneric)
+		}
+	}
+
+	return mapper.VillagerMapper(res), nil
+}
+
 // FindAllStreamServerSide(*emptypb.Empty, "go-grpc-service/shared/proto".VillagersService_FindAllStreamServerSideServer) error
 func (v VillagersHandler) FindAllStreamServerSide(in *empty.Empty, stream proto.VillagersService_FindAllStreamServerSideServer) error {
 
@@ -76,17 +91,26 @@ func (v VillagersHandler) FindStreamClientSide(stream proto.VillagersService_Fin
 	}
 }
 
-func (v VillagersHandler) FindByName(ctx context.Context, req *proto.FindByNameRequest) (*proto.Villager, error) {
+func (v VillagersHandler) FindStreamBidirecitonal(stream proto.VillagersService_FindStreamBidirecitonalServer) error {
 
-	res, err := v.villagersUsecase.FindByName(ctx, req.Name)
-	if err != nil {
-		switch {
-		case err.Error() == constants.ErrorNotFound:
-			return nil, status.Errorf(codes.NotFound, constants.ErrorNotFound)
-		default:
-			return nil, status.Errorf(codes.Internal, constants.ErrorGeneric)
+	ctx := stream.Context()
+
+	for {
+		in, err := stream.Recv()
+
+		if err == io.EOF {
+			return nil
+		}
+		if err != nil {
+			return err
+		}
+
+		searchResult, errSearch := v.villagersUsecase.FindByName(ctx, in.Name)
+		if errSearch == nil {
+			if err := stream.Send(mapper.VillagerMapper(searchResult)); err != nil {
+				return err
+			}
 		}
 	}
 
-	return mapper.VillagerMapper(res), nil
 }

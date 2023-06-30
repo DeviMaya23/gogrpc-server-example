@@ -24,6 +24,7 @@ const (
 	VillagersService_FindByName_FullMethodName              = "/proto.VillagersService/FindByName"
 	VillagersService_FindAllStreamServerSide_FullMethodName = "/proto.VillagersService/FindAllStreamServerSide"
 	VillagersService_FindStreamClientSide_FullMethodName    = "/proto.VillagersService/FindStreamClientSide"
+	VillagersService_FindStreamBidirecitonal_FullMethodName = "/proto.VillagersService/FindStreamBidirecitonal"
 )
 
 // VillagersServiceClient is the client API for VillagersService service.
@@ -34,6 +35,7 @@ type VillagersServiceClient interface {
 	FindByName(ctx context.Context, in *FindByNameRequest, opts ...grpc.CallOption) (*Villager, error)
 	FindAllStreamServerSide(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (VillagersService_FindAllStreamServerSideClient, error)
 	FindStreamClientSide(ctx context.Context, opts ...grpc.CallOption) (VillagersService_FindStreamClientSideClient, error)
+	FindStreamBidirecitonal(ctx context.Context, opts ...grpc.CallOption) (VillagersService_FindStreamBidirecitonalClient, error)
 }
 
 type villagersServiceClient struct {
@@ -128,6 +130,37 @@ func (x *villagersServiceFindStreamClientSideClient) CloseAndRecv() (*FindAllRes
 	return m, nil
 }
 
+func (c *villagersServiceClient) FindStreamBidirecitonal(ctx context.Context, opts ...grpc.CallOption) (VillagersService_FindStreamBidirecitonalClient, error) {
+	stream, err := c.cc.NewStream(ctx, &VillagersService_ServiceDesc.Streams[2], VillagersService_FindStreamBidirecitonal_FullMethodName, opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &villagersServiceFindStreamBidirecitonalClient{stream}
+	return x, nil
+}
+
+type VillagersService_FindStreamBidirecitonalClient interface {
+	Send(*FindStreamClientSideRequest) error
+	Recv() (*Villager, error)
+	grpc.ClientStream
+}
+
+type villagersServiceFindStreamBidirecitonalClient struct {
+	grpc.ClientStream
+}
+
+func (x *villagersServiceFindStreamBidirecitonalClient) Send(m *FindStreamClientSideRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *villagersServiceFindStreamBidirecitonalClient) Recv() (*Villager, error) {
+	m := new(Villager)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // VillagersServiceServer is the server API for VillagersService service.
 // All implementations must embed UnimplementedVillagersServiceServer
 // for forward compatibility
@@ -136,6 +169,7 @@ type VillagersServiceServer interface {
 	FindByName(context.Context, *FindByNameRequest) (*Villager, error)
 	FindAllStreamServerSide(*emptypb.Empty, VillagersService_FindAllStreamServerSideServer) error
 	FindStreamClientSide(VillagersService_FindStreamClientSideServer) error
+	FindStreamBidirecitonal(VillagersService_FindStreamBidirecitonalServer) error
 	mustEmbedUnimplementedVillagersServiceServer()
 }
 
@@ -154,6 +188,9 @@ func (UnimplementedVillagersServiceServer) FindAllStreamServerSide(*emptypb.Empt
 }
 func (UnimplementedVillagersServiceServer) FindStreamClientSide(VillagersService_FindStreamClientSideServer) error {
 	return status.Errorf(codes.Unimplemented, "method FindStreamClientSide not implemented")
+}
+func (UnimplementedVillagersServiceServer) FindStreamBidirecitonal(VillagersService_FindStreamBidirecitonalServer) error {
+	return status.Errorf(codes.Unimplemented, "method FindStreamBidirecitonal not implemented")
 }
 func (UnimplementedVillagersServiceServer) mustEmbedUnimplementedVillagersServiceServer() {}
 
@@ -251,6 +288,32 @@ func (x *villagersServiceFindStreamClientSideServer) Recv() (*FindStreamClientSi
 	return m, nil
 }
 
+func _VillagersService_FindStreamBidirecitonal_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(VillagersServiceServer).FindStreamBidirecitonal(&villagersServiceFindStreamBidirecitonalServer{stream})
+}
+
+type VillagersService_FindStreamBidirecitonalServer interface {
+	Send(*Villager) error
+	Recv() (*FindStreamClientSideRequest, error)
+	grpc.ServerStream
+}
+
+type villagersServiceFindStreamBidirecitonalServer struct {
+	grpc.ServerStream
+}
+
+func (x *villagersServiceFindStreamBidirecitonalServer) Send(m *Villager) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *villagersServiceFindStreamBidirecitonalServer) Recv() (*FindStreamClientSideRequest, error) {
+	m := new(FindStreamClientSideRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // VillagersService_ServiceDesc is the grpc.ServiceDesc for VillagersService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -276,6 +339,12 @@ var VillagersService_ServiceDesc = grpc.ServiceDesc{
 		{
 			StreamName:    "FindStreamClientSide",
 			Handler:       _VillagersService_FindStreamClientSide_Handler,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "FindStreamBidirecitonal",
+			Handler:       _VillagersService_FindStreamBidirecitonal_Handler,
+			ServerStreams: true,
 			ClientStreams: true,
 		},
 	},
