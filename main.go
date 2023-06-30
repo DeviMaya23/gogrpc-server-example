@@ -26,13 +26,15 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
-	server := grpc.NewServer()
 
 	villagersRepo := repository.NewVillagersRepository()
 	villagersUc := usecase.NewVillagersUsecase(villagersRepo)
-	proto.RegisterVillagersServiceServer(server, villagersDelivery.NewVillagersHandler(villagersUc))
 
+	server := grpc.NewServer()
+	proto.RegisterVillagersServiceServer(server, villagersDelivery.NewVillagersHandler(villagersUc))
 	proto.RegisterGreetingServiceServer(server, greetingDelivery.NewGreetingHandler())
+
+	// Enable Reflection
 	reflection.Register(server)
 
 	if err := server.Serve(lis); err != nil {

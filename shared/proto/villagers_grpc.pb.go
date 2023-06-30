@@ -20,7 +20,8 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	VillagersService_FindAll_FullMethodName = "/proto.VillagersService/FindAll"
+	VillagersService_FindAll_FullMethodName       = "/proto.VillagersService/FindAll"
+	VillagersService_FindAllStream_FullMethodName = "/proto.VillagersService/FindAllStream"
 )
 
 // VillagersServiceClient is the client API for VillagersService service.
@@ -28,6 +29,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type VillagersServiceClient interface {
 	FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*FindAllResponse, error)
+	FindAllStream(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (VillagersService_FindAllStreamClient, error)
 }
 
 type villagersServiceClient struct {
@@ -47,11 +49,44 @@ func (c *villagersServiceClient) FindAll(ctx context.Context, in *emptypb.Empty,
 	return out, nil
 }
 
+func (c *villagersServiceClient) FindAllStream(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (VillagersService_FindAllStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &VillagersService_ServiceDesc.Streams[0], VillagersService_FindAllStream_FullMethodName, opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &villagersServiceFindAllStreamClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type VillagersService_FindAllStreamClient interface {
+	Recv() (*Villager, error)
+	grpc.ClientStream
+}
+
+type villagersServiceFindAllStreamClient struct {
+	grpc.ClientStream
+}
+
+func (x *villagersServiceFindAllStreamClient) Recv() (*Villager, error) {
+	m := new(Villager)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // VillagersServiceServer is the server API for VillagersService service.
 // All implementations must embed UnimplementedVillagersServiceServer
 // for forward compatibility
 type VillagersServiceServer interface {
 	FindAll(context.Context, *emptypb.Empty) (*FindAllResponse, error)
+	FindAllStream(*emptypb.Empty, VillagersService_FindAllStreamServer) error
 	mustEmbedUnimplementedVillagersServiceServer()
 }
 
@@ -61,6 +96,9 @@ type UnimplementedVillagersServiceServer struct {
 
 func (UnimplementedVillagersServiceServer) FindAll(context.Context, *emptypb.Empty) (*FindAllResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindAll not implemented")
+}
+func (UnimplementedVillagersServiceServer) FindAllStream(*emptypb.Empty, VillagersService_FindAllStreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method FindAllStream not implemented")
 }
 func (UnimplementedVillagersServiceServer) mustEmbedUnimplementedVillagersServiceServer() {}
 
@@ -93,6 +131,27 @@ func _VillagersService_FindAll_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _VillagersService_FindAllStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(emptypb.Empty)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(VillagersServiceServer).FindAllStream(m, &villagersServiceFindAllStreamServer{stream})
+}
+
+type VillagersService_FindAllStreamServer interface {
+	Send(*Villager) error
+	grpc.ServerStream
+}
+
+type villagersServiceFindAllStreamServer struct {
+	grpc.ServerStream
+}
+
+func (x *villagersServiceFindAllStreamServer) Send(m *Villager) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 // VillagersService_ServiceDesc is the grpc.ServiceDesc for VillagersService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -105,6 +164,12 @@ var VillagersService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _VillagersService_FindAll_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "FindAllStream",
+			Handler:       _VillagersService_FindAllStream_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "villagers.proto",
 }

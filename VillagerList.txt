@@ -1,0 +1,122 @@
+Ace	NH-Ace-poster	♂ Jock	Bird	August 11th	"ace"	Nature
+Admiral	NH-Admiral-poster	♂ Cranky	Bird	January 27th	"aye aye"	Nature
+Agent S	NH-Agent S-poster	♀ Peppy	Squirrel	July 2nd	"sidekick"	Fitness
+Apple	NH-Apple-poster	♀ Peppy	Hamster	September 24th	"cheekers"	Play
+Bangle	NH-Bangle-poster	♀ Peppy	Tiger	August 27th	"growf"	Fashion
+Barold	NH-Barold-poster	♂ Lazy	Cub	March 2nd	"cubby"	Play
+Boots	NH-Boots-poster	♂ Jock	Alligator	August 7th	"munchie"	Play
+Boris	NH-Boris-poster	♂ Cranky	Pig	November 6th	"schnort"	Nature
+Chevre	NH-Chevre-poster	♀ Normal	Goat	March 6th	"la baa"	Education
+Chief	NH-Chief-poster	♂ Cranky	Wolf	December 19th	"harrumph"	Music
+Chops	NH-Chops-poster	♂ Smug	Pig	October 13th	"zoink"	Education
+Chow	NH-Chow-poster	♂ Cranky	Bear	July 22nd	"aiya"	Fitness
+Curt	NH-Curt-poster	♂ Cranky	Bear	July 1st	"fuzzball"	Nature
+Cyd	NH-Cyd-poster	♂ Cranky	Elephant	June 9th	"rockin'"	Music
+Cyrano	NH-Cyrano-poster	♂ Cranky	Anteater	March 9th	"ah-CHOO"	Education
+Daisy	NH-Daisy-poster	♀ Normal	Dog	November 16th	"bow-WOW"	Education
+Deena	NH-Deena-poster	♀ Normal	Duck	June 27th	"woowoo"	Education
+Deirdre	NH-Deirdre-poster	♀ Sisterly	Deer	May 4th	"whatevs"	Play
+Del	NH-Del-poster	♂ Cranky	Alligator	May 27th	"gronk"	Fitness
+Deli	NH-Deli-poster	♂ Lazy	Monkey	May 24th	"monch"	Nature
+Derwin	NH-Derwin-poster	♂ Lazy	Duck	May 25th	"derrrrr"	Play
+Diana	NH-Diana-poster	♀ Snooty	Deer	January 4th	"no doy"	Education
+Diva	NH-Diva-poster	♀ Sisterly	Frog	October 2nd	"ya know"	Fitness
+Elise	NH-Elise-poster	♀ Snooty	Monkey	March 21st	"puh-lease"	Fashion
+Ellie	NH-Ellie-poster	♀ Normal	Elephant	May 12th	"li'l one"	Nature
+Elmer	NH-Elmer-poster	♂ Lazy	Horse	October 5th	"tenderfoot"	Play
+Eloise	NH-Eloise-poster	♀ Snooty	Elephant	December 8th	"tooooot"	Fash
+Fang	NH-Fang-poster	♂ Cranky	Wolf	December 18th	"cha-chomp"	Education
+Fauna	NH-Fauna-poster	♀ Normal	Deer	March 26th	"dearie"	Nature
+Felicity	NH-Felicity-poster	♀ Peppy	Cat	March 30th	"mimimi"	Fashion
+Filbert	NH-Filbert-poster	♂ Lazy	Squirrel	June 3rd	"bucko"	Nature
+Flip	NH-Flip-poster	♂ Jock	Monkey	November 21st	"rerack"	Music
+Flo	NH-Flo-poster	♀ Sisterly	Penguin	September 2nd	"cha"	Music
+Gabi	NH-Gabi-poster	♀ Peppy	Rabbit	December 16th	"honeybun"	Fashion
+Gala	NH-Gala-poster	♀ Normal	Pig	March 5th	"snortie"	Education
+Gruff	NH-Gruff-poster	♂ Cranky	Goat	August 29th	"bleh eh eh"	Music
+Gwen	NH-Gwen-poster	♀ Snooty	Penguin	January 23rd	"h-h-h-hon"	Fashion
+Hamlet	NH-Hamlet-poster	♂ Jock	Hamster	May 30th	"hammie"	Play
+Hamphrey	NH-Hamphrey-poster	♂ Cranky	Hamster	February 25th	"snort"	Nature
+Hans	NH-Hans-poster	♂ Smug	Gorilla	December 5th	"groovy"	Fitness
+Harry	NH-Harry-poster	♂ Cranky	Hippo	January 7th	"beach bum"	Education
+Iggly	NH-Iggly-poster	♂ Jock	Penguin	November 2nd	"waddler"	Fitness
+Ike	NH-Ike-poster	♂ Cranky	Bear	May 16th	"roadie"	Nature
+Ione	NH-Ione-poster	♀ Normal	Squirrel	September 11th	"gleam"	Fashion
+Jakey	NH-Jacob-poster	♂ Lazy	Bird	August 24th	"ya feel"	Nature
+Jacques	NH-Jacques-poster	♂ Smug	Bird	June 22nd	"zut alors"	Music
+Jambette	NH-Jambette-poster	♀ Normal	Frog	October 27th	"croak-kay"	Fashion
+Jay	NH-Jay-poster	♂ Jock	Bird	July 17th	"heeeeeyy"	Fitness
+Jeremiah	NH-Jeremiah-poster	♂ Lazy	Frog	July 8th	"nee-deep"	Play
+Kevin	NH-Kevin-poster	♂ Jock	Pig	April 26th	"weeweewee"	Play
+Kid Cat	NH-Kid Cat-poster	♂ Jock	Cat	August 1st	"psst"	Fitness
+Kidd	NH-Kidd-poster	♂ Smug	Goat	June 28th	"wut"	Education
+Kiki	NH-Kiki-poster	♀ Normal	Cat	October 8th	"kitty cat"	Education
+Kitt	NH-Kitt-poster	♀ Normal	Kangaroo	October 11th	"child"	Education
+Kitty	NH-Kitty-poster	♀ Snooty	Cat	February 15th	"mrowrr"	Fashion
+Klaus	NH-Klaus-poster	♂ Smug	Bear	March 31st	"strudel"	Education
+Lucha	NH-Lucha-poster	♂ Smug	Bird	December 12th	"cacaw"	Fitness
+Lucky	NH-Lucky-poster	♂ Lazy	Dog	November 4th	"rrr-owch"	Play
+Lucy	NH-Lucy-poster	♀ Normal	Pig	June 2nd	"snoooink"	Music
+Lyman	NH-Lyman-poster	♂ Jock	Koala	October 12th	"chips"	Play
+Mac	NH-Mac-poster	♂ Jock	Dog	November 11th	"woo woof"	Fitness
+Mallary	NH-Mallary-poster	♀ Snooty	Duck	November 17th	"quackpth"	Fashion
+Melba	NH-Melba-poster	♀ Normal	Koala	April 12th	"toasty"	Education
+Merengue	NH-Merengue-poster	♀ Normal	Rhino	March 19th	"shortcake"	Nature
+Merry	NH-Merry-poster	♀ Peppy	Cat	June 29th	"mweee"	Fashion
+Midge	NH-Midge-poster	♀ Normal	Bird	March 12th	"tweedledee"	Education
+Naomi	NH-Naomi-poster	♀ Snooty	Cow	February 28th	"moolah"	Fashion
+Nate	NH-Nate-poster	♂ Lazy	Bear	August 16th	"yawwwn"	Play
+Nibbles	NH-Nibbles-poster	♀ Peppy	Squirrel	July 19th	"niblet"	Fashion
+Norma	NH-Norma-poster	♀ Normal	Cow	September 20th	"hoof hoo"	Nature
+Octavian	NH-Octavian-poster	♂ Cranky	Octopus	September 20th	"sucker"	Play
+O'Hare	NH-O'Hare-poster	♂ Smug	Rabbit	July 24th	"amigo"	Nature
+Olaf	NH-Olaf-poster	♂ Smug	Anteater	May 19th	"whiffa"	Education
+Olive	NH-Olive-poster	♀ Normal	Cub	July 12th	"sweet pea"	Nature
+Olivia	NH-Olivia-poster	♀ Snooty	Cat	February 3rd	"purrr"	Music
+Peewee	NH-Peewee-poster	♂ Cranky	Gorilla	September 11th	"li'l bitty baby"	Fitness
+Peggy	NH-Peggy-poster	♀ Peppy	Pig	May 23rd	"shweetie"	Fashion
+Pekoe	NH-Pekoe-poster	♀ Normal	Cub	May 18th	"bud"	Nature
+Penelope	NH-Penelope-poster	♀ Peppy	Mouse	February 5th	"oh bow"	Fashion
+Phoebe	NH-Phoebe-poster	♀ Sisterly	Ostrich	April 22nd	"sparky"	Fitness
+Queenie	NH-Queenie-poster	♀ Snooty	Ostrich	November 13th	"chicken"	Fashion
+Quillson	NH-Quillson-poster	♂ Smug	Duck	December 22nd	"ridukulous"	Music
+Quinn	NH-Quinn-poster	♀ Sisterly	Eagle	January 20th	"proper"	Education
+Raddle	NH-Raddle-poster	♂ Lazy	Frog	June 6th	"aaach—"	Nature
+Rasher	NH-Rasher-poster	♂ Cranky	Pig	April 7th	"swine"	Music
+Raymond	NH-Raymond-poster	♂ Smug	Cat	October 1st	"crisp"	Nature
+Rocket	NH-Rocket-poster	♀ Sisterly	Gorilla	April 14th	"vroom"	Fitness
+Rosie	NH-Rosie-poster	♀ Peppy	Cat	February 27th	"silly"	Music
+Roswell	NH-Roswell-poster	♂ Smug	Alligator	May 2nd	"spaaace"	Nature
+Rowan	NH-Rowan-poster	♂ Jock	Tiger	August 26th	"mango"	Fitness
+Shari	NH-Shari-poster	♀ Sisterly	Monkey	April 10th	"cheeky"	Music
+Sheldon	NH-Sheldon-poster	♂ Jock	Squirrel	February 26th	"cardio"	Play
+Shep	NH-Shep-poster	♂ Smug	Dog	November 24th	"baa baa baa"	Education
+Sprinkle	NH-Sprinkle-poster	♀ Peppy	Penguin	February 20th	"frappe"	Play
+Sprocket	NH-Sprocket-poster	♂ Jock	Ostrich	December 1st	"zort"	Music
+Sydney	NH-Sydney-poster	♀ Normal	Koala	June 21st	"sunshine"	Music
+Sylvana	NH-Sylvana-poster	♀ Normal	Squirrel	October 22nd	"hubbub"	Nature
+Sylvia	NH-Sylvia-poster	♀ Sisterly	Kangaroo	May 3rd	"boing"	Music
+Tabby	NH-Tabby-poster	♀ Peppy	Cat	August 13th	"me-WOW"	Music
+Tad	NH-Tad-poster	♂ Jock	Frog	August 3rd	"sluuuurp"	Play
+Tammi	NH-Tammi-poster	♀ Peppy	Monkey	April 2nd	"chimpy"	Fashion
+Tammy	NH-Tammy-poster	♀ Sisterly	Cub	June 23rd	"ya heard"	Play
+Tangy	NH-Tangy-poster	♀ Peppy	Cat	June 17th	"reeeeOWR"	Music
+Tutu	NH-Tutu-poster	♀ Peppy	Bear	September 15th	"twinkles"	Fashion
+Twiggy	NH-Twiggy-poster	♀ Peppy	Bird	July 13th	"cheepers"	Fashion
+Tybalt	NH-Tybalt-poster	♂ Jock	Tiger	August 19th	"grrrRAH"	Play
+Ursala	NH-Ursala-poster	♀ Sisterly	Bear	January 16th	"grooomph"	Music
+Velma	NH-Velma-poster	♀ Snooty	Goat	January 14th	"blih"	Education
+Vesta	NH-Vesta-poster	♀ Normal	Sheep	April 16th	"baaaffo"	Fashion
+Vic	NH-Vic-poster	♂ Cranky	Bull	December 29th	"cud"	Fitness
+Victoria	NH-Victoria-poster	♀ Peppy	Horse	July 11th	"sugar cube"	Fitness
+Vladimir	NH-Vladimir-poster	♂ Cranky	Cub	August 2nd	"nyet"	Play
+Wade	NH-Wade-poster	♂ Lazy	Penguin	October 30th	"so it goes"	Nature
+Walker	NH-Walker-poster	♂ Lazy	Dog	June 10th	"wuh"	Play
+Walt	NH-Walt-poster	♂ Cranky	Kangaroo	April 24th	"pockets"	Fitness
+Wart Jr.	NH-Wart Jr.-poster	♂ Cranky	Frog	August 21st	"grr-ribbit"	Education
+Winnie	NH-Winnie-poster	♀ Peppy	Horse	January 31st	"hay-OK"	Fashion
+Wolfgang	NH-Wolfgang-poster	♂ Cranky	Wolf	November 25th	"snarrrl"	Education
+Yuka	NH-Yuka-poster	♀ Snooty	Koala	July 20th	"tsk tsk"	Fashion
+Zell	NH-Zell-poster	♂ Smug	Deer	June 7th	"pronk"	Music
+Zoe	NH-Zoe-poster	♀ Normal	Anteater	February 10th	"zoozooroo"	Education
+Zucker	NH-Zucker-poster	♂ Lazy	Octopus	March 8th	"bloop"	Nature

@@ -24,3 +24,13 @@ func FindAllResponseMapper(in []domain.Villager) *proto.FindAllResponse {
 
 	return &res
 }
+
+func FindAllStreamMapper(in domain.Villager) *proto.Villager {
+
+	protoVillager := &proto.Villager{
+		Name:        in.Name,
+		Personality: in.Personality,
+	}
+
+	return protoVillager
+}

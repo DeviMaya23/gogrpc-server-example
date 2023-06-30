@@ -5,8 +5,11 @@ import (
 )
 
 type Villager struct {
-	Name        string `json:"id"`
-	Personality string `json:"title"`
+	Name        string `json:"name"`
+	Personality string `json:"personality"`
+	Species     string `json:"species"`
+	Birthday    string `json:"birthday"`
+	Catchphrase string `json:"catchphrase"`
 }
 
 type VillagersUsecase interface {

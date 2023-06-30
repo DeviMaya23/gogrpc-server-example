@@ -16,5 +16,6 @@ message FindAllResponse {
 }
 
 service VillagersService {
-    rpc FindAll (google.protobuf.Empty) returns (FindAllResponse);
+    rpc FindAll (google.protobuf.Empty) returns (FindAllResponse); // unary
+    rpc FindAllStream (google.protobuf.Empty) returns (stream Villager); // server-side stream
 }
