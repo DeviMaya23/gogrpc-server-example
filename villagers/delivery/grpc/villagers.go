@@ -2,6 +2,7 @@ package grpc
 
 import (
 	"context"
+	"fmt"
 	"go-grpc-service/common/constants"
 	"go-grpc-service/domain"
 	"go-grpc-service/shared/proto"
@@ -58,6 +59,7 @@ func (v VillagersHandler) FindAllStreamServerSide(in *empty.Empty, stream proto.
 	}
 
 	for _, villager := range res {
+		fmt.Println(villager)
 		stream.Send(mapper.FindAllStreamServerSideMapper(villager))
 		time.Sleep(50 * time.Millisecond)
 	}
@@ -72,6 +74,7 @@ func (v VillagersHandler) FindStreamClientSide(stream proto.VillagersService_Fin
 	var result []domain.Villager
 	for {
 		name, err := stream.Recv()
+		fmt.Println(name)
 
 		// read stream
 		if err == io.EOF {
@@ -105,8 +108,13 @@ func (v VillagersHandler) FindStreamBidirecitonal(stream proto.VillagersService_
 			return err
 		}
 
+		fmt.Println("Finding : " + in.Name)
+
+		time.Sleep(5 * time.Second)
 		searchResult, errSearch := v.villagersUsecase.FindByName(ctx, in.Name)
 		if errSearch == nil {
+			fmt.Println("Villager found : ")
+			fmt.Println(searchResult)
 			if err := stream.Send(mapper.VillagerMapper(searchResult)); err != nil {
 				return err
 			}
